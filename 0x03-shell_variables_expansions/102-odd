@@ -1,0 +1,2 @@
+#!/bin/bash
+i=0\nwhile IFS= read -r l\ndo\n  r=$((i % 2))\n  if [ "$r" -eq 0 ]\n  then\n    echo "$l"\n  fi\n  i=$((i + 1))\ndone

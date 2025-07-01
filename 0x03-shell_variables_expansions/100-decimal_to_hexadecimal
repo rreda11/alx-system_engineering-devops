@@ -1,0 +1,2 @@
+#!/bin/bash
+for d in $DECIMAL do printf "%x\\n" "$d"\ndone

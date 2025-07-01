@@ -1,0 +1,2 @@
+#!/bin/bash
+w=$(echo "$WATER" | tr "water" "01234")\ns=$(echo "$STIR" | tr "stir" "0123")\nsum=$((5#$w + 4#$s))\nbase=bestchol\nout=""\n  out="${base:sum%9:1}$out"\n  sum=$((sum / 9))\ndone\necho "$out"
