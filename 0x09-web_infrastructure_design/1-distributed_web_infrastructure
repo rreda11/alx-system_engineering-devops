@@ -1,0 +1,107 @@
+1-simple_web_stack
+Description
+This design shows a three-server web infrastructure for hosting www.foobar.com with improved reliability and scalability compared to a single-server setup.
+
+Infrastructure Components
+Load Balancer (HAProxy)
+
+Distributes incoming traffic between multiple servers to prevent overload on one server.
+
+In this setup, it uses the Round Robin algorithm, which sends traffic to servers in rotation, ensuring an even load distribution.
+
+Web Server (Nginx)
+
+Handles static content such as HTML, CSS, and images.
+
+Forwards dynamic content requests to the application server.
+
+Application Server
+
+Runs the website’s core logic using the application code base.
+
+Application Files (Code Base)
+
+Contains the source code of the website.
+
+Database (MySQL)
+
+Stores and retrieves website data.
+
+A Primary-Replica cluster can be used:
+
+Primary (Master) → Handles all write (insert, update, delete) operations.
+
+Replica (Slave) → Handles read-only operations and replicates data asynchronously from the Primary for redundancy and performance.
+
+Load Balancer Setup
+Active-Active → All servers share traffic simultaneously, providing better performance and failover.
+
+Active-Passive → One server is active while the other is idle and only takes over if the active one fails.
+
+Our design uses Active-Active.
+
+Issues with This Infrastructure
+Single Point of Failure (SPOF)
+
+The load balancer itself is a single point of failure.
+
+Security Issues
+
+No firewall or HTTPS configuration, leaving data and the system vulnerable.
+
+No Monitoring
+
+Lack of tools to track performance, detect failures, or security threats.1-simple_web_stack
+Description
+This design shows a three-server web infrastructure for hosting www.foobar.com with improved reliability and scalability compared to a single-server setup.
+
+Infrastructure Components
+Load Balancer (HAProxy)
+
+Distributes incoming traffic between multiple servers to prevent overload on one server.
+
+In this setup, it uses the Round Robin algorithm, which sends traffic to servers in rotation, ensuring an even load distribution.
+
+Web Server (Nginx)
+
+Handles static content such as HTML, CSS, and images.
+
+Forwards dynamic content requests to the application server.
+
+Application Server
+
+Runs the website’s core logic using the application code base.
+
+Application Files (Code Base)
+
+Contains the source code of the website.
+
+Database (MySQL)
+
+Stores and retrieves website data.
+
+A Primary-Replica cluster can be used:
+
+Primary (Master) → Handles all write (insert, update, delete) operations.
+
+Replica (Slave) → Handles read-only operations and replicates data asynchronously from the Primary for redundancy and performance.
+
+Load Balancer Setup
+Active-Active → All servers share traffic simultaneously, providing better performance and failover.
+
+Active-Passive → One server is active while the other is idle and only takes over if the active one fails.
+
+Our design uses Active-Active.
+
+Issues with This Infrastructure
+Single Point of Failure (SPOF)
+
+The load balancer itself is a single point of failure.
+
+Security Issues
+
+No firewall or HTTPS configuration, leaving data and the system vulnerable.
+
+No Monitoring
+
+Lack of tools to track performance, detect failures, or security threats.
