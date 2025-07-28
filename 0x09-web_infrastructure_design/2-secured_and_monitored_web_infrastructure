@@ -1,0 +1,55 @@
+This is an improved version of the previous 3-server architecture, but now we add:
+
+3 Firewalls
+
+SSL Certificate (HTTPS)
+
+3 Monitoring Clients
+
+New Elements and Why We Add Them
+Firewalls (3)
+
+Placed in front of each server (Load Balancer, Web Server, Database).
+
+Protects from unauthorized access, DDoS attacks, and malicious traffic.
+
+SSL Certificate
+
+Allows serving traffic over HTTPS (encrypted connection).
+
+Ensures privacy, integrity, and security between user and website.
+
+Monitoring Clients (e.g., SumoLogic, Datadog, New Relic)
+
+Installed on each server to collect metrics (CPU, memory, disk usage, HTTP requests, errors).
+
+Sends data to a central monitoring system for alerting and performance analysis.
+
+Key Explanations
+Why Firewalls?
+They filter incoming and outgoing network traffic, blocking unauthorized access while allowing legitimate traffic.
+
+Why HTTPS?
+It encrypts data between the user and the server, protecting sensitive information (e.g., login credentials).
+
+What is Monitoring Used For?
+It helps track server health, detect failures, optimize performance, and respond to anomalies.
+
+How Does Monitoring Collect Data?
+Monitoring agents run on each server and send logs and metrics to a central platform (e.g., SumoLogic, ELK, Prometheus).
+
+Monitoring Web Server QPS (Queries Per Second)
+Configure your monitoring tool to collect metrics from Nginx (via status module or API). Track and alert when QPS exceeds thresholds.
+
+Issues in This Infrastructure
+SSL Termination at Load Balancer
+
+Traffic between load balancer and backend servers is unencrypted (possible internal snooping risk).
+
+Only One MySQL Server Accepting Writes
+
+Write operations depend on a single server, creating a performance bottleneck and a single point of failure.
+
+Servers Having All Components
+
+Running database, web server, and app server on every node can lead to resource conflicts and complex management.
