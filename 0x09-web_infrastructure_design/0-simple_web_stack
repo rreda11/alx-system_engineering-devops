@@ -1,0 +1,54 @@
+Description
+This is a simple one-server web infrastructure design that hosts the website www.foobar.com.
+
+Infrastructure Components
+Server
+
+A physical or virtual machine that hosts all the components needed to run the website.
+
+In this setup, everything runs on one server with the IP address 8.8.8.8.
+
+Domain Name (foobar.com)
+
+A human-readable name that maps to the server's IP address.
+
+www.foobar.com is a DNS A record that points to the IP 8.8.8.8.
+
+Web Server (Nginx)
+
+Handles HTTP/HTTPS requests from users.
+
+Serves static content (e.g., images, CSS, JS).
+
+Passes dynamic requests to the application server.
+
+Application Server
+
+Runs the website logic and handles dynamic content requests.
+
+Works with the application files (the website code base).
+
+Application Files (Code Base)
+
+Contains all the source code of the website.
+
+Database (MySQL)
+
+Stores and manages data for the website (e.g., users, posts, transactions).
+
+Communication
+
+The user’s computer communicates with the server using the HTTP/HTTPS protocol.
+
+Issues with This Setup
+Single Point of Failure (SPOF)
+
+If the server fails, the entire website becomes unavailable.
+
+Downtime for Maintenance
+
+Any server updates or deployments require stopping the services, leading to downtime.
+
+Scalability Limitations
+
+A single server cannot handle very high traffic efficiently.
